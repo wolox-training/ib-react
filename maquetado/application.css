@@ -85,6 +85,14 @@ li {
   opacity: 1; }
 
 .title {
-  color: red; }
+  background-image: url(assets/triangle.svg);
+  background-position: 10px 0;
+  background-repeat: no-repeat;
+  color: black;
+  font-size: larger;
+  height: 90px;
+  padding-left: 55px;
+  padding-top: 30px;
+  position: relative; }
 
 /*# sourceMappingURL=application.css.map */

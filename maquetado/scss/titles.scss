@@ -1,0 +1,13 @@
+@import 'styles';
+
+.title {
+  background-image: url(assets/triangle.svg);
+  background-position: 10px 0;
+  background-repeat: no-repeat;
+  color: black;
+  font-size: larger;
+  height: $title-decoration-height;
+  padding-left: 55px;
+  padding-top: 30px;
+  position: relative;
+}

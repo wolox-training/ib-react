@@ -32,6 +32,12 @@ $card-border-radius: 5px;
     position: absolute;
     top: -10px;
     width: $card-width;
+    transition: all 0.5s ease;
+  }
+
+  &:hover:before {
+    left: 10px;
+    top: 10px;
   }
 
   .tech-icon {

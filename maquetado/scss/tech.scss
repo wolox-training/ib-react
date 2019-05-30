@@ -3,35 +3,33 @@
 $tech-logo-size: 100px;
 
 .tech-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
   display: flex;
-  
-  -webkit-flex-flow: row wrap;
   justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -webkit-flex-flow: row wrap;
 }
 
 .tech {
   background: $green;
   border-radius: 5px;
-  position: relative;
-  width: 200px;
-  height: 300px;
-  text-align: center;
   font-size: $text-medium;
-
+  height: 300px;
   left: 10px;
-  
+  position: relative;
+  text-align: center;
+  width: 200px;
+
   &::before {
-    content: '';
-    border-radius: 5px;
     border: 2px solid $green;
-    width: 200px;
+    border-radius: 5px;
+    content: '';
     height: 300px;
-    position: absolute;
     left: -10px;
+    position: absolute;
     top: -10px;
+    width: 200px;
   }
 
   .tech-icon {

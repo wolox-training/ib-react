@@ -8,3 +8,7 @@ $text-medium: 16px;
 $text-small: 12px;
 
 $main-font: 'roboto';
+
+* {
+  font-family: $main-font;
+}

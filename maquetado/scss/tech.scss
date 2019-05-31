@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'styles';
+
 $tech-logo-size: 100px;
 $card-width: 200px;
 $card-height: 300px;
@@ -7,6 +8,7 @@ $card-border-radius: 5px;
 
 .tech-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 

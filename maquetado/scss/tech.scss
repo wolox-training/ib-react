@@ -12,7 +12,7 @@ $card-border-radius: 5px;
 
 .tech {
   background: $green;
-  border-radius: 5px;
+  border-radius: $card-border-radius;
   display: flex;
   font-size: $text-medium;
   height: min-content;

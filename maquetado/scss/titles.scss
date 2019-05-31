@@ -1,0 +1,18 @@
+@import 'styles';
+
+.title {
+  display: block;
+  font-size: $text-big;
+
+  &::before {
+    background-image: url(assets/triangle.svg);
+    background-position: 10px 0;
+    background-repeat: no-repeat;
+    content: '';
+    display: inline-block;
+    height: $title-decoration-height;
+    vertical-align: middle;
+    width: $title-decoration-width;
+
+  }
+}

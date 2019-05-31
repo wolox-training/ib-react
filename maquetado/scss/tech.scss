@@ -1,35 +1,37 @@
 @import 'colors';
 @import 'styles';
 $tech-logo-size: 100px;
+$tech-card-width: 200px;
+$tech-card-height: 300px;
 
 .tech-container {
   display: flex;
   justify-content: space-around;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  -webkit-flex-flow: row wrap;
 }
 
 .tech {
   background: $green;
   border-radius: 5px;
+  display: flex;
   font-size: $text-medium;
-  height: 300px;
+  height: $tech-card-height;
   left: 10px;
   position: relative;
+  padding: 10px;
   text-align: center;
-  width: 200px;
+  width: $tech-card-width;
+  flex-direction: column;
+  align-items: center;
 
   &::before {
     border: 2px solid $green;
     border-radius: 5px;
     content: '';
-    height: 300px;
+    height: $tech-card-height;
     left: -10px;
     position: absolute;
     top: -10px;
-    width: 200px;
+    width: $tech-card-width;
   }
 
   .tech-icon {
@@ -38,16 +40,16 @@ $tech-logo-size: 100px;
   }
 
   .name {
-    font-size: inherit;
+    margin: 10px;
   }
   
   .release {
-    font-size: inherit;
+    margin: 10px;
     font-weight: 800;
   }
   
   .description {
-    font-size: inherit;
+    margin: 10px;
   }
 
 }

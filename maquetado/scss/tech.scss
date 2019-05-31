@@ -1,8 +1,9 @@
 @import 'colors';
 @import 'styles';
 $tech-logo-size: 100px;
-$tech-card-width: 200px;
-$tech-card-height: 300px;
+$card-width: 200px;
+$card-height: 300px;
+$card-border-radius: 5px;
 
 .tech-container {
   display: flex;
@@ -14,24 +15,23 @@ $tech-card-height: 300px;
   border-radius: 5px;
   display: flex;
   font-size: $text-medium;
-  height: $tech-card-height;
-  left: 10px;
+  height: min-content;
   position: relative;
   padding: 10px;
   text-align: center;
-  width: $tech-card-width;
+  width: $card-width;
   flex-direction: column;
   align-items: center;
 
   &::before {
     border: 2px solid $green;
-    border-radius: 5px;
+    border-radius: $card-border-radius;
     content: '';
-    height: $tech-card-height;
+    height: 100%;
     left: -10px;
     position: absolute;
     top: -10px;
-    width: $tech-card-width;
+    width: $card-width;
   }
 
   .tech-icon {

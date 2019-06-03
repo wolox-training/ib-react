@@ -1,0 +1,22 @@
+@import 'styles';
+
+.navbar {
+  align-items: center;
+  background-color:white;
+  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: space-between;
+  margin: -20px 0;
+  padding: 20px;
+  position: fixed;
+  width: -webkit-fill-available;
+  z-index: 1;
+
+  .navbar-icon {
+    height: $nav-height;
+  }
+
+  .navbar-title {
+    font-size: $text-big;
+  }
+}

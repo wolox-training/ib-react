@@ -24,6 +24,7 @@ $card-border-radius: 5px;
   align-items: center;
 
   &::before {
+    z-index: -1;
     border: 2px solid $green;
     border-radius: $card-border-radius;
     content: '';

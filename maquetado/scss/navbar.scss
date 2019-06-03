@@ -1,14 +1,16 @@
 @import 'styles';
+@import 'colors';
 
 .navbar {
   align-items: center;
-  background-color:white;
+  background-color: $nav-background-color;
   box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.45);
   display: flex;
   justify-content: space-between;
   padding: $nav-padding;
   position: fixed;
-  width: -webkit-fill-available;
+  width: 100vw;
+  top: 0;
   z-index: 1;
 
   .navbar-icon {

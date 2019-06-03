@@ -1,5 +1,6 @@
 @import 'styles';
 @import 'colors';
+
 .footer {
   align-items: center;
   background-color: $pictonBlue;
@@ -9,18 +10,18 @@
   z-index: 1;
 
   .footer-title {
-    color: white;
+    color: $footer-text-color;
     margin: 10px;
     font-size: $text-big;
   }
 
   .footer-icon {
-    height: $nav-height;
+    height: $footer-logo-height;
   }
 
   .footer-copyright {
     align-self: flex-end;
-    color: white;
+    color: $footer-text-color;
     margin: 5px;
     font-size: $text-small;
   }

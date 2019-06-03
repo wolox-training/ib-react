@@ -6,8 +6,7 @@
   box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.45);
   display: flex;
   justify-content: space-between;
-  margin: -20px 0;
-  padding: 20px;
+  padding: $nav-padding;
   position: fixed;
   width: -webkit-fill-available;
   z-index: 1;

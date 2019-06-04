@@ -4,6 +4,7 @@ $title-decoration-width: 70px;
 .title {
   display: block;
   font-size: $text-big;
+  margin: 20px 0;
 
   &::before {
     background-image: url(assets/triangle.svg);

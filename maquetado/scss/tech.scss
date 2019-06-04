@@ -11,11 +11,7 @@ $card-border-radius: 5px;
   display: grid;
   grid-template-columns: $card-width;
   grid-template-rows: auto;
-  grid-column-gap: 50px;
   grid-row-gap: 20px;
-  grid-template-areas: 
-    "main a b"
-    "main c d";
 }
 
 .tech {
@@ -25,14 +21,6 @@ $card-border-radius: 5px;
   width: $card-width;
   flex-direction: column;
   align-items: center;
-  
-  &:first-child {
-    border-right: 3px solid $green;
-    align-self: center;
-    grid-area: main;
-    justify-content: center;
-    height: 2*$card-height;
-  }
 
   .tech-icon {
     width: $tech-logo-size;
@@ -50,6 +38,46 @@ $card-border-radius: 5px;
   
   .description {
     margin: 10px;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+  .tech-container {
+    grid-column-gap: 50px;
+    grid-template-areas: 
+      "main a b"
+      "main c d";
+  }
+
+  .tech {
+
+    &:first-child {
+      border-right: 3px solid $green;
+      align-self: center;
+      grid-area: main;
+      justify-content: center;
+      height: 2*$card-height;
+    }
+  
+  }
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .tech-container {
+    grid-template-areas: 
+      "a";
+  }
+  
+  .tech {
+
+    &:not(:last-child){
+      border-bottom: 3px solid $green;
+    }
+  
   }
 
 }

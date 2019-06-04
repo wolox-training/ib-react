@@ -7,40 +7,31 @@ $card-height: 300px;
 $card-border-radius: 5px;
 
 .tech-container {
-  display: flex;
-  margin: 10px;
-  justify-content: space-around;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: $card-width;
+  grid-template-rows: auto;
+  grid-column-gap: 50px;
+  grid-row-gap: 20px;
+  grid-template-areas: 
+    "main . ."
+    "main . .";
 }
 
 .tech {
-  background: $green;
-  border-radius: $card-border-radius;
   display: flex;
-  font-size: $text-medium;
-  height: min-content;
-  position: relative;
   padding: 10px;
   text-align: center;
   width: $card-width;
   flex-direction: column;
   align-items: center;
-
-  &::before {
-    z-index: -1;
-    border: 2px solid $green;
-    border-radius: $card-border-radius;
-    content: '';
-    height: 100%;
-    left: -10px;
-    position: absolute;
-    top: -10px;
-    width: $card-width;
-    transition: all 0.5s ease;
-  }
-
-  &:hover:before {
-    left: 10px;
-    top: 10px;
+  
+  &:first-child {
+    border-right: 3px solid $green;
+    align-self: center;
+    grid-area: main;
+    justify-content: center;
+    height: 2*$card-height;
   }
 
   .tech-icon {

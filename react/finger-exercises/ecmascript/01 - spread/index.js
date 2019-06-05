@@ -11,10 +11,10 @@ export function min() {
   if(isArray(numbers)){
     return Math.min.apply(Math, numbers);
   }
-  else if (isArray(args)){
+  else {
     return Math.min.apply(Math, args);
   }
-  return numbers;
+
 }
 
 export function copy(a) {

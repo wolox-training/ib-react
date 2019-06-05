@@ -13,7 +13,7 @@ describe('Promises', () => {
     .catch(e => expect(e).toEqual(Error('This time is too much !')))
   );
 
-  xit('asyncDelay also works well', async () => {
+  it('asyncDelay also works well', async () => {
     const delayedTime = await asyncDelay(TIME);
     expect(delayedTime).toBeGreaterThanOrEqual(TIME - 100);
     expect(delayedTime).toBeLessThanOrEqual(TIME + 100);

@@ -24,3 +24,7 @@ export function copy(a) {
   }
   return Object.assign({}, a);
 }
+
+export function reverseMerge(a, b) {
+  return b.concat(a); 
+}

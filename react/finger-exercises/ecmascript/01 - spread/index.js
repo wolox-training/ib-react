@@ -19,5 +19,8 @@ export function min() {
 }
 
 export function copy(a) {
+  if(isArray(a)){
+    return Object.assign([], a);
+  }
   return Object.assign({}, a);
 }

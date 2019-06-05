@@ -5,8 +5,8 @@ export function min() {
     return undefined;
   }
 
-  var numbers = arguments[0];
-  var args = Array.from(arguments);
+  let numbers = arguments[0];
+  let args = Array.from(arguments);
 
   if(isArray(numbers)){
     return Math.min.apply(Math, numbers);
@@ -15,7 +15,6 @@ export function min() {
     return Math.min.apply(Math, args);
   }
   return numbers;
-
 }
 
 export function copy(a) {
@@ -27,4 +26,11 @@ export function copy(a) {
 
 export function reverseMerge(a, b) {
   return b.concat(a); 
+}
+
+export function filterAttribs() {
+  let mObject = copy(arguments[0]);
+  delete mObject.a;
+  delete mObject.b;
+  return mObject
 }

@@ -18,6 +18,6 @@ export function min() {
 
 }
 
-export function copy() {
-
+export function copy(a) {
+  return Object.assign({}, a);
 }

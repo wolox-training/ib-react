@@ -3,22 +3,14 @@ import React, { Component } from 'react';
 import styles from './styles.module.scss';
 
 class Square extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      value: null,
-    };
-
-  }
-
   render() {
     return (
       <button 
         type="button" 
         className={styles.square} 
-        onClick={() => this.setState({value: 'X'})}
+        onClick={() => this.props.onClick()}
       >
-        {this.state.value}
+        {this.props.value}
       </button>
     );
   }

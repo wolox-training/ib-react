@@ -2,9 +2,9 @@ import React from 'react';
 
 import styles from './styles.module.scss';
 
-const Square = () => (
+const Square = (props) => (
   <button type="button" className={styles.square}>
-    {/* TODO */}
+    {props.value }
   </button>
 );
 

@@ -18,9 +18,14 @@ export function copy(element) {
   if(isArray(element)){
     return [...element];
   }
-  else {
+  else if (isObject(element)){
     return {...element};
   }
+  throw new Error("Parameter is not an array nor object!");
+}
+
+function isObject(obj){
+  return typeof obj === 'object';
 }
 
 export function reverseMerge(arrayA, arrayB) {

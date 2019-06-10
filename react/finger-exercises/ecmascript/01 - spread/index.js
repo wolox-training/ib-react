@@ -1,36 +1,36 @@
 import { isArray } from './utils';
 
-export function min() {
+export function min(...numbers) {
   if(arguments.length === 0){
     return undefined;
   }
 
-  let numbers = arguments[0];
-  let args = Array.from(arguments);
-
-  if(isArray(numbers)){
-    return Math.min.apply(Math, numbers);
+  if(isArray(...numbers)){
+    return Math.min.apply(Math, ...numbers);
   }
   else {
-    return Math.min.apply(Math, args);
+    return Math.min.apply(Math, numbers);
   }
 
 }
 
-export function copy(a) {
-  if(isArray(a)){
-    return Object.assign([], a);
+export function copy(element) {
+  if(isArray(element)){
+    return [...element];
   }
-  return Object.assign({}, a);
+  else {
+    return {...element};
+  }
 }
 
-export function reverseMerge(a, b) {
-  return b.concat(a); 
+export function reverseMerge(arrayA, arrayB) {
+  let newArray = copy(arrayB);
+  newArray.push(...arrayA);
+
+  return newArray;
 }
 
-export function filterAttribs() {
-  let mObject = copy(arguments[0]);
-  delete mObject.a;
-  delete mObject.b;
-  return mObject
+export function filterAttribs(elements) {
+  let {a, b, ...c} = elements;  
+  return c
 }

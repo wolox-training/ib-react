@@ -3,6 +3,8 @@ import matchesService from './../../../services/MatchesService';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
+import { SubmissionError } from 'redux-form';
+import RegisterForm from './components/RegisterForm'
 
 class Game extends Component {
   constructor(props) {
@@ -71,7 +73,12 @@ class Game extends Component {
     return winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext? 'X' : 'O'}`;
   }
 
+  submit = values => {
+    window.alert(JSON.stringify(values, null, 4));
+  }
+
   render() {
+    return( <RegisterForm onSubmit={this.submit}/>);
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);

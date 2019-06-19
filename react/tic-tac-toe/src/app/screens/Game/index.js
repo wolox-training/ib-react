@@ -26,25 +26,20 @@ class Game extends Component {
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length -1];
-    const squares = current.squares.slice();
+    const squares = [...current.squares];
     if (this.calculateWinner(squares) || squares[i]){
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
-      history: history.concat([{
-        squares: squares
-      }]),
+      history: [...history, { squares }],
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
     });
   }
 
-  render() {
+  getMovesList(){
     const history = this.state.history;
-    const current = history[this.state.stepNumber];
-    const winner = this.calculateWinner(current.squares);
-
     const moves = history.map((step, move) => {
       const desc = move ? 
         'Go to move #' + move : 
@@ -58,12 +53,20 @@ class Game extends Component {
       );
     });
 
-    let status;
-    if (winner) {
-      status = 'Winner: ' + winner;
-    } else {
-      status = 'Next player: ' + (this.state.xIsNext? 'X' : 'O');
-    }
+    return moves;
+  }
+
+  getStatus(winner){
+    return winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext? 'X' : 'O'}`;
+  }
+
+  render() {
+    const history = this.state.history;
+    const current = history[this.state.stepNumber];
+    const winner = this.calculateWinner(current.squares);
+    const status = this.getStatus(winner);
+    const moves = this.getMovesList();
+
 
     return (
       <div className={styles.game}>
@@ -74,7 +77,7 @@ class Game extends Component {
           />
         </div>
         <div className={styles.gameInfo}>
-          <div>{status}</div>
+          <span>{status}</span>
           <ol>{moves}</ol>
         </div>
       </div>

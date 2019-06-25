@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import matchesService from './../../../services/MatchesService';
-
+import { Redirect, Route } from 'react-router-dom';
 import styles from './styles.module.scss';
 import Board from './components/Board';
 import { SubmissionError } from 'redux-form';
-import RegisterForm from './components/RegisterForm'
 
 class Game extends Component {
   constructor(props) {
@@ -17,6 +16,7 @@ class Game extends Component {
       stepNumber: 0,
       xIsNext: true,
       isLoading: false,
+      isLoged: false,
     };
   }
 
@@ -78,7 +78,10 @@ class Game extends Component {
   }
 
   render() {
-    return( <RegisterForm onSubmit={this.submit}/>);
+    if(!window.localStorage.getItem("token")){
+      return <Redirect to="/"/>;
+    }
+
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);

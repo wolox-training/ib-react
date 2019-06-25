@@ -11,7 +11,8 @@ don't add it to the initialState, they'll probably won't notice it's there.
 */
 const initialState = {
   favoriteBook: null,
-  readBooks: ['Moby Dick']
+  readBooks: ['Moby Dick'],
+  mostHatedBook: null
 };
 
 /*
@@ -24,8 +25,21 @@ function reducer(state = initialState, action) {
     case actions.SET_FAVORITE_BOOK:
       return {
         ...state,
-        favoriteBook: action.payload.favoriteBook
+        favoriteBook: action.payload
       };
+
+    case actions.ADD_READ_BOOK:
+      return {
+        ...state,
+          readBooks: [...state.readBooks, action.payload]
+        };
+
+    case actions.SET_MOST_HATED_BOOK:
+      return {
+        ...state,
+        mostHatedBook: action.payload
+      };
+
     default:
       return state;
   }

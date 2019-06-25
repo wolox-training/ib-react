@@ -21,20 +21,14 @@ place. All actions types must only be used inside an actionCreator.
 export default {
   addReadBook: title => ({
     type: actions.ADD_READ_BOOK,
-    payload: {
-      title
-    }
+    payload: title
   }),
   setFavoriteBook: title => ({
     type: actions.SET_FAVORITE_BOOK,
-    payload: {
-      favoriteBook: title
-    }
+    payload: title
   }),
   setMostHatedBook: title => ({
     type: actions.SET_MOST_HATED_BOOK,
-    payload: {
-      mostHatedBook: title
-    }
+    payload: title
   })
 };

@@ -25,17 +25,16 @@ function reducer(state = initialState, action) {
     case actions.SET_FAVORITE_BOOK:
       return {
         ...state,
-        favoriteBook: action.payload.favoriteBook
+        favoriteBook: action.payload
       };
 
     case actions.ADD_READ_BOOK:
-      state.readBooks.push(action.payload.title);
-      return state;
+      return {...state}.readBooks.push(action.payload);
 
     case actions.SET_MOST_HATED_BOOK:
       return {
         ...state,
-        mostHatedBook: action.payload.mostHatedBook
+        mostHatedBook: action.payload
       };
 
     default:

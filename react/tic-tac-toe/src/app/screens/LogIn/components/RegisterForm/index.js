@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { customInput } from '../Field';
 import { required, minLength, matchesPassword, asyncValidate } from '../../validation';
-import './styles.css';
+import './styles.scss';
 import { normalize } from 'path';
 
 class RegisterForm extends Component {

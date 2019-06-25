@@ -29,7 +29,10 @@ function reducer(state = initialState, action) {
       };
 
     case actions.ADD_READ_BOOK:
-      return {...state}.readBooks.push(action.payload);
+      return {
+        ...state,
+          readBooks: [...state.readBooks, action.payload]
+        };
 
     case actions.SET_MOST_HATED_BOOK:
       return {

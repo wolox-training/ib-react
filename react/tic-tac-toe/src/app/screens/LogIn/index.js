@@ -16,6 +16,7 @@ class LogIn extends Component {
       logIn.logIn({email: values.email, password: values.password})
       .then((response) => {
         if (response.status === 401) {
+          window.alert("Unauthorized");
           return Promise.reject({
             email: 'Unauthorized',
             password: 'Unauthorized'

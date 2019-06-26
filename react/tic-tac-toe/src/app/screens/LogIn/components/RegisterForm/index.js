@@ -21,8 +21,6 @@ class RegisterForm extends Component {
 
 RegisterForm = reduxForm({
   form: 'register',
-  asyncValidate,
-  asyncBlurFields: ['name']
 })(RegisterForm);
 
 export default RegisterForm;

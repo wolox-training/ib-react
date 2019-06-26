@@ -4,6 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import styles from './styles.module.scss';
 import Board from './components/Board';
 import { SubmissionError } from 'redux-form';
+import Spinner from "react-spinkit";
 
 class Game extends Component {
   constructor(props) {
@@ -43,11 +44,14 @@ class Game extends Component {
   }
 
   async componentDidMount(){
-    this.state.isLoading = true;
+    this.setState({isLoading: true});
     const response = await matchesService.getMatches();
     if(response.ok){
-      this.state.matches = response.data;
-      this.state.isLoading = false;
+      this.setState({matches: response.data, isLoading: false});
+    }
+    else{
+      window.alert("Could not connect to the server, try again later");
+      this.setState({isLoading: false});
     }
   }
 
@@ -98,7 +102,6 @@ class Game extends Component {
         </li>
       );
     });
-    var Spinner = require('react-spinkit');
 
     if(this.state.isLoading){
       return (<Spinner name='folding-cube' />);
@@ -108,7 +111,7 @@ class Game extends Component {
           <div className={styles.gameBoard}>
             <Board 
               squares={current.squares}
-              onClick={(i) => this.handleClick(i)}
+              onClick={this.handleClick}
             />
           </div>
           <div className={styles.gameInfo}>

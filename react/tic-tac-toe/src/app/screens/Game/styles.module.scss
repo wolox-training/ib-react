@@ -1,8 +1,29 @@
+@import 'styles';
+@import 'colors';
+
 .game {
   display: flex;
+  margin-top: $nav-height + 2*$nav-padding;
+  justify-content: center;
   flex-direction: row;
 }
 
 .game-info {
   margin-left: 20px;
+}
+
+.navbar {
+  background-color: $nav-background-color;
+  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: space-evenly;
+  padding: $nav-padding;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
+
+  .title {
+    font-size: $text-big;
+  }
 }

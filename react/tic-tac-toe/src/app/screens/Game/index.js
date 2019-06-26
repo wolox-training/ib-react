@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import matchesService from './../../../services/MatchesService';
 import { Redirect, Route } from 'react-router-dom';
 import styles from './styles.module.scss';
 import Board from './components/Board';
 import { SubmissionError } from 'redux-form';
+import Navbar from "./components/Navbar"
+
 
 class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      matches: [],
       history: [{
         squares: Array(9).fill(null),
       }],
       stepNumber: 0,
       xIsNext: true,
-      isLoading: false,
-      isLoged: false,
     };
   }
 
@@ -40,15 +38,6 @@ class Game extends Component {
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
     });
-  }
-
-  async componentDidMount(){
-    this.state.isLoading = true;
-    const response = await matchesService.getMatches();
-    if(response.ok){
-      this.state.matches = response.data;
-      this.state.isLoading = false;
-    }
   }
 
   getMovesList(){
@@ -88,37 +77,21 @@ class Game extends Component {
     const status = this.getStatus(winner);
     const moves = this.getMovesList();
 
-
-    const matchesHistory = this.state.matches;
-    const matches = matchesHistory.map(game => {
-      const match = "Player 1: " + game.player_one + " || Player 2: " +  game.player_two + " || Winner: " + game.winner;
-      return (
-        <li key={game.id} >
-            {match}
-        </li>
-      );
-    });
-    var Spinner = require('react-spinkit');
-
-    if(this.state.isLoading){
-      return (<Spinner name='folding-cube' />);
-    }else{
-      return (
-        <div className={styles.game}>  
-          <div className={styles.gameBoard}>
-            <Board 
-              squares={current.squares}
-              onClick={(i) => this.handleClick(i)}
-            />
-          </div>
-          <div className={styles.gameInfo}>
-            <span>{status}</span>
-            <ol>{moves}</ol>
-          </div>
-          <ol>{matches}</ol>
+    return (
+      <div className={styles.game}> 
+        <Navbar secondScreen="matches"/>
+        <div className={styles.gameBoard}>
+          <Board 
+            squares={current.squares}
+            onClick={(i) => this.handleClick(i)}
+          />
         </div>
-      );
-    }
+        <div className={styles.gameInfo}>
+          <span>{status}</span>
+          <ol>{moves}</ol>
+        </div>
+      </div>
+    );
 
   }
 

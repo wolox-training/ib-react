@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import styles from './styles.module.scss';
 import Board from './components/Board';
-import { SubmissionError } from 'redux-form';
-import Spinner from "react-spinkit";
-import Navbar from "./components/Navbar"
+import Navbar from "./components/Navbar";
 
 
 class Game extends Component {

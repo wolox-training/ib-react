@@ -1,38 +1,13 @@
 import React, { Component } from 'react';
 import RegisterForm from './components/RegisterForm';
-import { Redirect, Route } from 'react-router-dom';
-import logIn from '../../../services/LoginService';
+import { Redirect } from 'react-router-dom';
+import { connect } from "react-redux";
+import actionCreators from "../../../redux/actions";
 
 class LogIn extends Component {
-  state = {
-    toGame: false,
-  }
 
   submit = (values) => {
-    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-    
-    return sleep(500)
-    .then(() => {
-      logIn.logIn({email: values.email, password: values.password})
-      .then((response) => {
-        if (response.status === 401) {
-          window.alert("Unauthorized");
-          return Promise.reject({
-            email: 'Unauthorized',
-            password: 'Unauthorized'
-          });
-        }
-        if(!response){
-          window.alert("Could not connect to the server");
-          return Promise.reject("Could not connect to the server");
-        }
-        window.localStorage.setItem("token", response.data.token);
-
-        this.setState(() =>( {
-          toGame: true
-        }))
-      })
-    })
+    this.props.dispatch(actionCreators.logIn({email: values.email, password: values.password}));
   }
 
   render() {
@@ -44,7 +19,7 @@ class LogIn extends Component {
        <RegisterForm onSubmit={this.submit}/>
     );
   }
-
 }
 
-export default LogIn;
+const mapStateToProps = () => ({})
+export default connect(mapStateToProps)(LogIn);

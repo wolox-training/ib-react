@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-import matchesService from '../../../../../services/MatchesService';
 import { Redirect} from 'react-router-dom';
 import styles from '../../styles.module.scss';
 import Navbar from "../Navbar"
+import { connect } from "react-redux";
+import actionCreators from "../../../../../redux/actions";
 
-class Game extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      matches: [],
-      isLoading: false,
-    };
-  }
-
+class Matches extends Component {
+  
   async componentDidMount(){
-    this.setState({isLoading: true});
-    const response = await matchesService.getMatches();
+    const response = this.props.dispatch(actionCreators.getMatches());
+    //this.props.isLoading = true;
+    //const response = await TicTacToeService.getMatches();
     if(response.ok){
-      this.setState({matches: response.data, isLoading: false});
+      this.props.matches = response.data;
+      this.props.isLoading = false;
     }
   }
 
@@ -26,18 +22,18 @@ class Game extends Component {
       return <Redirect to="/"/>;
     }
 
-    const matchesHistory = this.state.matches;
+    const matchesHistory = this.props.matches;
     const matches = matchesHistory.map(game => {
       const match = "Player 1: " + game.player_one + " || Player 2: " +  game.player_two + " || Winner: " + game.winner;
       return (
         <li key={game.id} >
-            {match}
+          {match}
         </li>
       );
     });
     var Spinner = require('react-spinkit');
 
-    if(this.state.isLoading){
+    if(this.props.isLoading){
       return (<Spinner name='folding-cube' />);
     }else{
       return (
@@ -49,9 +45,14 @@ class Game extends Component {
         </div>
       );
     }
-
   }
-
 }
 
-export default Game;
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return ({
+    matches: state.tictactoe.matches,
+    isLoading: state.tictactoe.matchesLoading,
+});}
+export default connect(mapStateToProps)(Matches);

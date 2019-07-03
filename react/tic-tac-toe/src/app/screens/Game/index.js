@@ -61,10 +61,6 @@ class Game extends Component {
     return winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext? 'X' : 'O'}`;
   }
 
-  submit = values => {
-    window.alert(JSON.stringify(values, null, 4));
-  }
-
   render() {
     if(!window.localStorage.getItem("token")){
       return <Redirect to="/"/>;

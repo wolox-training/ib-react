@@ -10,12 +10,7 @@ const actionCreators = {
       type: actions.GET_MATCHES,
       service: TicTacToeService.getMatches,
       target: 'matches',
-      payload: {},
-      injections: [
-        withPostFailure(() => {
-          window.alert("Error while loading the matches");
-        })
-      ]
+      payload: {}
     };
   },
   logIn: (credentials) => {

@@ -10,7 +10,6 @@ const actionCreators = {
       type: actions.GET_MATCHES,
       service: TicTacToeService.getMatches,
       target: 'matches',
-      payload: {}
     };
   },
   logIn: (credentials) => {

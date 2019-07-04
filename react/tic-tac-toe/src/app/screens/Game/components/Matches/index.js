@@ -33,10 +33,9 @@ class Matches extends Component {
         <div className={styles.gameInfo}>
           <ol>{
             matches.map(game => {
-              const match = "Player 1: " + game.player_one + " || Player 2: " +  game.player_two + " || Winner: " + game.winner;
               return (
                 <li key={game.id} >
-                  {match}
+                  {"Player 1: " + game.player_one + " || Player 2: " +  game.player_two + " || Winner: " + game.winner}
                 </li>
               );
             })

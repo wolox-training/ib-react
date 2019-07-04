@@ -1,11 +1,11 @@
-@import 'styles';
 @import 'colors';
+@import 'styles';
 
 .game {
   display: flex;
-  margin-top: $nav-height + 2*$nav-padding;
-  justify-content: center;
   flex-direction: row;
+  justify-content: center;
+  margin-top: $nav-top-margin;
 }
 
 .game-info {
@@ -19,8 +19,8 @@
   justify-content: space-evenly;
   padding: $nav-padding;
   position: fixed;
-  width: 100vw;
   top: 0;
+  width: 100vw;
   z-index: 1;
 
   .title {

@@ -1,26 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import PropTypes from 'prop-types';
+
 import { customInput } from '../Field';
-import { required, minLength, matchesPassword, asyncValidate } from '../../validation';
+import { required, minLength, matchesPassword } from '../../validation';
+
 import './styles.scss';
-import { normalize } from 'path';
 
-class RegisterForm extends Component {
-  render() {
-    const { handleSubmit } = this.props;
-    return (
-      <form onSubmit={handleSubmit}>
-        <Field name="email" component={customInput} type="text" label="email" validate={[required, minLength]}/>
-        <Field name="password" component={customInput} type="password" label="Password" validate={[required, minLength]}/>
-        <Field name="confirmPassword" component={customInput} type="password" label="Confirm Password" validate={[required, matchesPassword]}/>
-        <button type="submit">Submit</button>
-      </form>
-    )
-  }
-}
+export const RegisterForm = props => {
+  const { handleSubmit } = props;
+  return (
+    <form onSubmit={handleSubmit}>
+      <Field name="email" component={customInput} type="text" label="email" validate={[required, minLength]} />
+      <Field name="password" component={customInput} type="password" label="Password" validate={[required, minLength]} />
+      <Field name="confirmPassword" component={customInput} type="password" label="Confirm Password" validate={[required, matchesPassword]} />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
 
-RegisterForm = reduxForm({
-  form: 'register',
+RegisterForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
+};
+
+
+export default reduxForm({
+  form: 'register'
 })(RegisterForm);
-
-export default RegisterForm;

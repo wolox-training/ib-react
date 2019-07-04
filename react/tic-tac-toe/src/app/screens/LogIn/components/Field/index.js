@@ -1,41 +1,30 @@
 import React from 'react';
 import cx from 'classnames';
 
-const getValidityClassName = meta => {
-  if (meta.asyncValidating){
-    return 'async-validating';
-  }
-  if (meta.active){
-    return;
-  }
-  if (meta.touched && meta.invalid){
-    return 'invalid';
-  }
-  if (meta.touched && meta.valid){
-    return 'valid';
-  }
-  
-}
+import validation from '../../../../../utils/classNameValidity';
+
 
 export const customInput = props => {
   const { label, input, type, meta } = props;
+  const { dirty, error, active, touched } = meta;
   return (
     <div
       className={cx(
         'custom-input-container',
-        {'flex-row-reverse': type === 'checkbox'},
-        {dirty: meta.dirty},
-        getValidityClassName(meta)
+        { 'flex-row-reverse': type === 'checkbox' },
+        { dirty },
+        validation.getValidityClassName(meta)
       )}
     >
-      <input {...input} type={type}/>
+      <input {...input} type={type} />
       <label>{label}</label>
-      {meta.error &&
-        meta.touched &&
-        !meta.active && (
+      {error &&
+        touched &&
+        !active && (
         <div className="feedback-text error-text">
-        {meta.error}</div>
+          {error}
+        </div>
       )}
     </div>
   );
-}
+};

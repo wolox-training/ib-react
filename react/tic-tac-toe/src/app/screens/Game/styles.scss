@@ -1,0 +1,14 @@
+
+$nav-height: 70px;
+$nav-logo-height: 30px;
+$text-big: 24px;
+$text-medium: 16px;
+$text-small: 12px;
+$nav-height: 60px;
+$nav-padding: 20px;
+$main-font: 'roboto';
+$nav-top-margin: $nav-height + 2*$nav-padding;
+
+* {
+  font-family: $main-font;
+}

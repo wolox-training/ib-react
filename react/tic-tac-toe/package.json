@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@redux-beacon/google-analytics": "^1.1.1",
-    "apisauce": "^1.0.0",
+    "apisauce": "^1.0.2",
     "babel-plugin-module-resolver": "^3.1.1",
+    "capitalize": "^2.0.0",
+    "classnames": "^2.2.6",
     "connected-react-router": "^5.0.1",
     "history": "^4.7.2",
     "i18next": "^12.1.0",
@@ -23,7 +25,7 @@
     "redux": "^4.0.1",
     "redux-beacon": "^2.0.3",
     "redux-form": "^7.4.2",
-    "redux-recompose": "^2.1.0",
+    "redux-recompose": "^2.1.5",
     "redux-thunk": "^2.3.0",
     "wolox-equalizer": "0.0.3"
   },

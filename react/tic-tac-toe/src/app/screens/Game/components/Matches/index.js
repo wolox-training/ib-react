@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import actionCreators from '../../../../../redux/actions';
 
-import layout from './screen/layout';
+import MatchesHistory from './screen/MatchesHistory';
 
 
 class Matches extends Component {
@@ -29,7 +29,7 @@ class Matches extends Component {
       return <span>ERROR:  {error}</span>;
     }
 
-    return layout.matches(matches);
+    return <MatchesHistory matches={matches} />;
   }
 }
 
